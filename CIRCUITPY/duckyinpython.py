@@ -21,13 +21,13 @@ from adafruit_hid.consumer_control_code import ConsumerControlCode
 from pins import *
 
 # comment out these lines for non_US keyboards
-from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS as KeyboardLayout
-from adafruit_hid.keycode import Keycode
+#from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS as KeyboardLayout
+#from adafruit_hid.keycode import Keycode
 
 # uncomment these lines for non_US keyboards
 # replace LANG with appropriate language
-#from keyboard_layout_win_LANG import KeyboardLayout as KeyboardLayout
-#from keycode_win_LANG import Keycode
+from keyboard_layout_win_sw import KeyboardLayout as KeyboardLayout
+from keycode_win_sw import Keycode
 
 def _capsOn():
     return kbd.led_on(Keyboard.LED_CAPS_LOCK)
