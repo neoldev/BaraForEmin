@@ -45,32 +45,11 @@ Install and have your USB Rubber Ducky working in less than 5 minutes.
 
 11. Copy `duckyinpython.py`, `code.py`, `pins.py`, `webapp.py`, `wsgiserver.py` to the root folder of the Pico.
 
-12. *For Pico W Only* Create the file `secrets.py` in the root of the Pico W. This contains the AP name and password to be created by the Pico W.  
-`secrets = { 'ssid' : "BadAPName", 'password' : "badpassword" }`
-
 13. Find a script [here](https://github.com/hak5/usbrubberducky-payloads) or [create your own one using Ducky Script](https://docs.hak5.org/hak5-usb-rubber-ducky/ducky-script-basics/hello-world) and save it as `payload.dd` in the Pico. Currently, pico-ducky only supports DuckyScript 1.0, and some of 3.0.
 
 14. Be careful, if your device isn't in [setup mode](#setup-mode), the device will reboot and after half a second, the script will run.
 
 15. **Please note:** by default Pico W will not show as a USB drive
-
-### Pico W Web Service
-The Pico W AP defaults to ip address `192.168.4.1`.  You should be able to find the webservice at `http://192.168.4.1:80`  
-
-The following endpoints are available on the webservice:
-```
-/
-/new
-/ducky
-/edit/<filename>
-/write/<filename>
-/run/<filename>
-```
-
-API endpoints
-```
-/api/run/<filenumber>
-```
 
 ## Setup mode
 
@@ -78,30 +57,6 @@ To edit the payload, enter setup mode by connecting the pin 1 (`GP0`) to pin 3 (
 The easiest way to do so is by using a jumper wire between those pins as seen bellow.
 
 ![Setup mode with a jumper](images/setup-mode.png)
-
-## USB enable/disable mode
-
-If you need the pico-ducky to not show up as a USB mass storage device for stealth, follow these instructions.  
-- Enter setup mode.    
-- Copy your payload script to the pico-ducky.  
-- Disconnect the pico from your host PC.
-- Connect a jumper wire between pin 18 (`GND`) and pin 20 (`GPIO15`).  
-This will prevent the pico-ducky from showing up as a USB drive when plugged into the target computer.  
-- Remove the jumper and reconnect to your PC to reprogram.  
-
-Pico: The default mode is USB mass storage enabled.   
-Pico W: The default mode is USB mass storage **disabled**  
-
-![USB enable/disable mode](images/usb-boot-mode.png)
-
-## Multiple payloads
-
-Multiple payloads can be stored on the Pico and Pico W.  
-To select a payload, ground one of these pins:
-- GP4 - payload.dd
-- GP5 - payload2.dd
-- GP10 - payload3.dd
-- GP11 - payload4.dd
 
 ## Changing Keyboard Layouts
 
